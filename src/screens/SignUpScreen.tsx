@@ -80,7 +80,7 @@ const SignScreen = () => {
                     />
                 </View>}
             <Image
-                source={require('../assets/estrobo.png')}
+                source={require('../assets/joystick.png')}
                 resizeMode="contain"
                 style={styles.logo}
             />

@@ -20,24 +20,22 @@ const IndexScreen = () => {
     return (   
         <View style={styles.container}> 
             <Image 
-                source={require('../assets/estrobo.png')}
+                source={require('../assets/joystick.png')}
                 resizeMode="contain"                 
                 style={styles.logo} 
             />   
 
             <View style={styles.buttonContainer} >   
                 <TouchableOpacity
-                    onPress={handlerSingIn}                   
-
-                    style={styles.button}
-                    >
+                    onPress={handlerSingIn} 
+                    style={styles.button}>
                     <Text style={styles.buttonText}>Iniciar Sesión</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity
                     onPress={handlerSignUp}                    
                     style={styles.buttonRegister}>
-                    <Text style={styles.buttonRegisterText}>Empecemos a configurar tu alarma</Text>
+                    <Text style={styles.buttonRegisterText}>¡Vamos a registrarnos!</Text>
                 </TouchableOpacity>
             </View>              
         </View> 

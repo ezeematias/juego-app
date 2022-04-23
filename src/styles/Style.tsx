@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 
-const primaryColor = '#e72b58';
-const secondaryColor = '#4a4b4a';
-const tertiaryColor = '#a6c2d6';
-const fourthColor = '#ffffff';
+const primaryColor = '#d31528';
+const secondaryColor = '#2aa94f';
+const tertiaryColor = '#ffffff';
+const fourthColor = '#4e4d4d';
 const buttonBorderRadius = 100;
 
 export default StyleSheet.create({
@@ -11,14 +11,13 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: fourthColor,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'center', 
+        justifyContent: 'center',        
     },
     logo: {
         width: '100%',
-        height: '50%',
-        top: '-20%',
-
+        height: '90%',
+        marginTop: '-30%',
     },
     logoHome: {
         width: '100%',
@@ -39,17 +38,15 @@ export default StyleSheet.create({
         marginTop: '5%',
     },
     buttonContainer: {
-        width: '80%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: '5%',
+        width: '100%',
+
     },
     button: {
         backgroundColor: primaryColor,
         width: '100%',
-        padding: 50,
-        borderRadius: buttonBorderRadius,
+        padding: '19%',
         alignItems: 'center',
+        marginTop: '-40%',
     },
     buttonRole: {
         backgroundColor: secondaryColor,
@@ -72,7 +69,10 @@ export default StyleSheet.create({
         borderWidth: 2,
     },
     buttonRegister: {
-        marginTop: '15%',
+        backgroundColor: secondaryColor,
+        width: '100%',
+        padding: '19%',
+        alignItems: 'center',
     },
     buttonOutlineRole: {
         backgroundColor: secondaryColor,
@@ -81,19 +81,21 @@ export default StyleSheet.create({
         borderWidth: 2,
     },
     buttonText: {
-        color: fourthColor,
+        color: tertiaryColor,
         fontWeight: '700',
-        fontSize: 16,
+        fontSize: 20,
     },
     buttonOutlineText: {
         color: fourthColor,
         fontWeight: '700',
         fontSize: 16,
     },
-    buttonRegisterText: {        
-        color: primaryColor,
+    buttonRegisterText: {
+        color: tertiaryColor,
         fontWeight: '700',
-        fontSize: 16,
+        fontSize: 20,
+        textAlign: 'center',
+
     },
     buttonOutlineTextRole: {
         color: primaryColor,
@@ -114,20 +116,20 @@ export default StyleSheet.create({
         width: '100%',
         zIndex: 100,
     },
-    textHome:{
+    textHome: {
         fontSize: 60,
-        marginTop: 40, 
+        marginTop: 40,
         color: secondaryColor,
-        fontWeight: 'bold',        
+        fontWeight: 'bold',
     },
-    textDescription:{
+    textDescription: {
         fontSize: 20,
-        marginTop: '10%', 
+        marginTop: '10%',
         color: secondaryColor,
-        fontWeight: 'bold',  
+        fontWeight: 'bold',
         textAlign: 'center',
         margin: 5,
-    },   
+    },
 
-    
+
 })

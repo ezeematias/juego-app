@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Alarma",
-    "slug": "Alarma",
+    "name": "Juego",
+    "slug": "Juego",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.essee.Alarma"
+      "package": "com.essee.Juego"
     }
   }
 }
