@@ -3,21 +3,33 @@ import { StyleSheet } from "react-native";
 const primaryColor = '#d31528';
 const secondaryColor = '#2aa94f';
 const tertiaryColor = '#ffffff';
-const fourthColor = '#4e4d4d';
-const buttonBorderRadius = 100;
+const fourthColor = '#f6a228';
+const fiveColor = '#2da6df';
+const sixColor = '#642681';
+const buttonBorderRadius = 0;
 
 export default StyleSheet.create({
 
     container: {
+        flex: 1,        
+        justifyContent: "center"
+    },
+    image: {
         flex: 1,
-        backgroundColor: fourthColor,
-        alignItems: 'center', 
-        justifyContent: 'center',        
+        justifyContent: "center"
+
     },
     logo: {
         width: '100%',
-        height: '90%',
-        marginTop: '-30%',
+        height: '50%', 
+        alignContent: 'center',  
+                  
+    },
+    logoIndex: { 
+        width: '100%',
+        height: '20%', 
+        alignItems: 'center',
+        marginTop: 20,
     },
     logoHome: {
         width: '100%',
@@ -25,28 +37,41 @@ export default StyleSheet.create({
         marginTop: '10%',
     },
     inputContainer: {
-        width: '80%',
+        width: '100%',
         marginTop: 10,
+        marginBottom: 10,
     },
     input: {
-        backgroundColor: primaryColor,
-        paddingHorizontal: 15,
+        backgroundColor: sixColor,        
         paddingVertical: 10,
+        paddingHorizontal: 20,
         borderRadius: buttonBorderRadius,
-        borderBottomColor: fourthColor,
-        borderBottomWidth: 2,
-        marginTop: '5%',
+        color: tertiaryColor,
+        marginTop: '5%',        
     },
     buttonContainer: {
         width: '100%',
-
+        marginTop: 10,
+    },
+    buttonAccessContainer: {
+        flex: 1,
+        justifyContent: "center",
+        flexDirection: "column",
+        width: '100%', 
+            
+        alignItems: 'center', 
     },
     button: {
-        backgroundColor: primaryColor,
+        backgroundColor: fourthColor,
         width: '100%',
-        padding: '19%',
+        padding: 20,
         alignItems: 'center',
-        marginTop: '-40%',
+
+    },
+    buttonRegister: {
+        backgroundColor: secondaryColor,
+        width: '100%',
+        padding: 20,
     },
     buttonRole: {
         backgroundColor: secondaryColor,
@@ -56,28 +81,22 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
     buttonError: {
-        backgroundColor: secondaryColor,
+        backgroundColor: primaryColor,
         width: '100%',
         padding: 15,
         borderRadius: buttonBorderRadius,
         alignItems: 'center',
     },
     buttonOutline: {
-        backgroundColor: primaryColor,
-        marginTop: 5,
-        borderColor: fourthColor,
-        borderWidth: 2,
-    },
-    buttonRegister: {
         backgroundColor: secondaryColor,
         width: '100%',
-        padding: '19%',
+        padding: 20,
         alignItems: 'center',
     },
     buttonOutlineRole: {
-        backgroundColor: secondaryColor,
+        backgroundColor:fiveColor,
         marginTop: 5,
-        borderColor: secondaryColor,
+        borderColor: fiveColor,
         borderWidth: 2,
     },
     buttonText: {
@@ -98,7 +117,7 @@ export default StyleSheet.create({
 
     },
     buttonOutlineTextRole: {
-        color: primaryColor,
+        color: fiveColor,
         fontWeight: '700',
         fontSize: 16,
     },
@@ -124,7 +143,6 @@ export default StyleSheet.create({
     },
     textDescription: {
         fontSize: 20,
-        marginTop: '10%',
         color: secondaryColor,
         fontWeight: 'bold',
         textAlign: 'center',

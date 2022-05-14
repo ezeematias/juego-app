@@ -10,6 +10,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.2",
     "@react-navigation/stack": "^6.1.1",
@@ -23,12 +25,14 @@
     "expo-font": "^10.0.5",
     "expo-splash-screen": "~0.14.1",
     "expo-status-bar": "~1.2.0",
+    "expo-updates": "~0.11.6",
     "firebase": "^9.6.11",
     "lottie-react-native": "5.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-hook-form": "^7.28.1",
     "react-native": "0.64.3",
+    "react-native-action-button": "^2.8.5",
     "react-native-extra-dimensions-android": "^1.2.5",
     "react-native-flash-message": "^0.2.1",
     "react-native-gesture-handler": "~2.1.0",
@@ -38,13 +42,13 @@
     "react-native-really-awesome-button": "^1.6.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
+    "react-native-svg": "^12.3.0",
     "react-native-web": "0.17.1",
     "react-navigation": "^4.4.4",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
-    "styled-components": "^5.3.5",
-    "expo-updates": "~0.11.6"
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image, ImageBackground } from "react-native";
 import { auth } from "../database/firebase";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { RootStackParamList } from "../../App";
@@ -17,15 +17,6 @@ const SignScreen = () => {
     const [loading, setLoading] = useState(false);
     
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
-    
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                navigation.replace('Home');
-            }
-        })
-        return unsubscribe;
-    }, []);
 
     const handlerSingUp = async () => {
         if (displayName === "" || email === "" || password === "" || rePassword === "") {
@@ -35,6 +26,7 @@ const SignScreen = () => {
             await createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential: { user: any; }) => {
                     userCredential.user
+                    navigation.navigate('Home');
                 })
                 .catch(error => {
                     switch (error.code) {
@@ -73,6 +65,8 @@ const SignScreen = () => {
 
     return (
         <View style={styles.container}>
+            <ImageBackground source={require('../../assets/background.png')} style={styles.image}>
+
             {loading && <View style={styles.spinContainer}>
                     <Spinner
                         visible={loading}  
@@ -82,7 +76,7 @@ const SignScreen = () => {
             <Image
                 source={require('../assets/joystick.png')}
                 resizeMode="contain"
-                style={styles.logo}
+                style={styles.logoIndex}
             />
 
             <View style={styles.inputContainer}>
@@ -96,22 +90,26 @@ const SignScreen = () => {
                 <TextInput placeholder="Nombre"
                     value={displayName}
                     onChangeText={text => setDisplayName(text)}
+                    placeholderTextColor="#ccc"
                     style={styles.input}
                 />
                 <TextInput placeholder="Correo electrónico"
                     value={email}
+                    placeholderTextColor="#ccc"
                     onChangeText={text => setEmail(text)}
                     style={styles.input}
                 />
 
                 <TextInput placeholder="Contraseña"
                     value={password}
+                    placeholderTextColor="#ccc"
                     onChangeText={text => setPassword(text)}
                     style={styles.input}
                     secureTextEntry
                 />
                 <TextInput placeholder="Vuelva a escribir la contraseña"
                     value={rePassword}
+                    placeholderTextColor="#ccc"
                     onChangeText={text => setRePassword(text)}
                     style={styles.input}
                     secureTextEntry
@@ -130,9 +128,10 @@ const SignScreen = () => {
                     onPress={handlerBack}
                     style={[styles.button, styles.buttonOutline]}
                 >
-                    <Text style={styles.buttonOutlineText}>Volver</Text>
+                    <Text style={styles.buttonRegisterText}>Volver</Text>
                 </TouchableOpacity>
             </View>
+            </ImageBackground>
         </View>
 
     );

@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image, ImageBackgroundBase, ImageBackground } from "react-native";
 import { auth } from "../database/firebase";
-import  styles from "../styles/Style";
+import styles from "../styles/Style";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { RootStackParamList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -16,21 +16,13 @@ const LoginScreen = () => {
 
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                navigation.replace('Home');
-            }
-        })
-        return unsubscribe;
-    }, []);
-
     const handlerLogin = async () => {
         setLoading(true);
         await signInWithEmailAndPassword(auth, email, password)
             .then((userCredential: { user: any; }) => {
                 const user = userCredential.user;
                 console.log("Logged in with", user.email);
+                navigation.navigate('Home');
             })
             .catch(error => {
                 switch (error.code) {
@@ -38,11 +30,11 @@ const LoginScreen = () => {
                     case 'auth/user-not-found':
                     case 'auth/wrong-password':
                     case 'auth/internal-error':
-                    case 'auth/too-many-requests':                        
+                    case 'auth/too-many-requests':
                         setMessageError("Credenciales inválidas");
                         break;
-                    default:                        
-                        setMessageError(error.message);                        
+                    default:
+                        setMessageError(error.message);
                         break;
                 }
             }).finally(() => { setLoading(false) });
@@ -52,7 +44,7 @@ const LoginScreen = () => {
         setMessage(message);
         setTimeout(() => {
             setMessage("");
-        }, 3000); 
+        }, 3000);
     }
 
     const guestLogin = () => {        
@@ -61,12 +53,12 @@ const LoginScreen = () => {
     }
     
     const adminLogin = () => {
-        setEmail("admin@gmail.com");
+        setEmail("admin@monsters.com");
         setPassword("123456");
     }
     
     const supplierLogin = () => {
-        setEmail("proveedores@gmail.com");
+        setEmail("usuario@monsters.com");
         setPassword("123456");
     }
 
@@ -75,80 +67,82 @@ const LoginScreen = () => {
     }
 
     return (
-        
+
         <View style={styles.container}>
-                {loading && <View style={styles.spinContainer}>
-                    <Spinner
-                        visible={loading}
-                        textStyle={styles.spinnerTextStyle}
-                    />
-                </View>}
-                <Image
-                    source={require('../assets/joystick.png')}
-                    resizeMode="contain"
-                    style={styles.logo}
+            <ImageBackground source={require('../../assets/background.png')} style={styles.image}>
+            {loading && <View style={styles.spinContainer}>
+                <Spinner
+                    visible={loading}
+                    textStyle={styles.spinnerTextStyle}
+                />
+            </View>}
+            <Image
+                source={require('../assets/joystick.png')}
+                resizeMode="contain"
+                style={styles.logoIndex}
+            />
+
+            <View style={styles.inputContainer}>
+                {!!message ? <TouchableOpacity
+                    style={styles.buttonError}
+                    onPress={() => setMessage("")}
+                >
+                    <Text style={styles.buttonText}>{message}</Text>
+                </TouchableOpacity> : null}
+
+                <TextInput placeholder="Correo electrónico"                
+                    placeholderTextColor="#ccc"
+                    value={email}
+                    onChangeText={text => setEmail(text)}
+                    style={styles.input}
                 />
 
-                <View style={styles.inputContainer}>
-                    {!!message ? <TouchableOpacity
-                        style={styles.buttonError}
-                        onPress={() => setMessage("")}
-                    >
-                        <Text style={styles.buttonText}>{message}</Text>
-                    </TouchableOpacity> : null}
+                <TextInput placeholder="Contraseña"
+                    value={password}
+                    placeholderTextColor="#ccc"
+                    onChangeText={text => setPassword(text)}
+                    style={styles.input}
+                    secureTextEntry
+                />
+            </View>
 
-                    <TextInput placeholder="Correo electrónico"
-                        value={email}
-                        onChangeText={text => setEmail(text)}
-                        style={styles.input}
-                    />
+            <View style={styles.buttonContainer} >
+                <TouchableOpacity
+                    onPress={handlerLogin}
+                    style={styles.button}                    >
+                    <Text style={styles.buttonText}>Iniciar Sesión</Text>
+                </TouchableOpacity>
 
-                    <TextInput placeholder="Contraseña"
-                        value={password}
-                        onChangeText={text => setPassword(text)}
-                        style={styles.input}
-                        secureTextEntry
-                    />
-                </View>
+                <TouchableOpacity
+                    onPress={handlerBack}
+                    style={[styles.buttonOutline]}
+                >
+                    <Text style={styles.buttonText}>Volver</Text>
+                </TouchableOpacity>
+            </View>
 
-                <View style={styles.buttonContainer} >
-                    <TouchableOpacity
-                        onPress={handlerLogin}
-
-                        style={styles.button}
-                    >
-                        <Text style={styles.buttonText}>Iniciar Sesión</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={handlerBack}
-                        style={[styles.button, styles.buttonOutline]}
-                    >
-                        <Text style={styles.buttonOutlineText}>Volver</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.buttonContainer} >
-                    <TouchableOpacity
-                        onPress={guestLogin}
-                        style={[styles.buttonRole, styles.buttonOutlineRole]}
-                    >
-                        <Text style={styles.buttonOutlineTextRole}>Invitado</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={adminLogin}
-                        style={[styles.buttonRole, styles.buttonOutlineRole]}
-                    >
-                        <Text style={styles.buttonOutlineTextRole}>Administrador</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={supplierLogin}
-                        style={[styles.buttonRole, styles.buttonOutlineRole]}
-                    >
-                        <Text style={styles.buttonOutlineTextRole}>Proveedores</Text>
-                    </TouchableOpacity>   
-                </View>                
-            </View>        
+            <View style={styles.buttonAccessContainer} >
+                <TouchableOpacity
+                    onPress={adminLogin}
+                    style={[styles.buttonRole, styles.buttonOutlineRole]}
+                >
+                    <Text style={styles.buttonText}>Administrador</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={guestLogin}
+                    style={[styles.buttonRole, styles.buttonOutlineRole]}
+                >
+                    <Text style={styles.buttonText}>Invitado</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={supplierLogin}
+                    style={[styles.buttonRole, styles.buttonOutlineRole]}
+                >
+                    <Text style={styles.buttonText}>Usuario</Text>
+                </TouchableOpacity>
+            </View>
+            </ImageBackground>
+        </View>
     );
 }
 export default LoginScreen
