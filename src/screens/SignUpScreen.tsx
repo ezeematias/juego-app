@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/core";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image, ImageBackground } from "react-native";
 import { auth } from "../database/firebase";
-import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { RootStackParamList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import Spinner from "react-native-loading-spinner-overlay/lib";
@@ -15,7 +15,7 @@ const SignScreen = () => {
     const [displayName, setDisplayName] = useState("");
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
-    
+
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
     const handlerSingUp = async () => {
@@ -60,80 +60,79 @@ const SignScreen = () => {
         setMessage(message);
         setTimeout(() => {
             setMessage("");
-        }, 3000); 
+        }, 3000);
     }
 
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../assets/background.png')} style={styles.image}>
 
-            {loading && <View style={styles.spinContainer}>
+                {loading && <View style={styles.spinContainer}>
                     <Spinner
-                        visible={loading}  
+                        visible={loading}
                         textStyle={styles.spinnerTextStyle}
                     />
                 </View>}
-            <Image
-                source={require('../assets/joystick.png')}
-                resizeMode="contain"
-                style={styles.logoIndex}
-            />
-
-            <View style={styles.inputContainer}>
-                {!!message ? <TouchableOpacity
-                    style={styles.buttonError}
-                    onPress={() => setMessage("")}
-                >
-                    <Text style={styles.buttonText}>{message}</Text>
-                </TouchableOpacity> : null}
-
-                <TextInput placeholder="Nombre"
-                    value={displayName}
-                    onChangeText={text => setDisplayName(text)}
-                    placeholderTextColor="#ccc"
-                    style={styles.input}
-                />
-                <TextInput placeholder="Correo electrónico"
-                    value={email}
-                    placeholderTextColor="#ccc"
-                    onChangeText={text => setEmail(text)}
-                    style={styles.input}
+                <Image
+                    source={require('../assets/joystick.png')}
+                    resizeMode="contain"
+                    style={styles.logoIndex}
                 />
 
-                <TextInput placeholder="Contraseña"
-                    value={password}
-                    placeholderTextColor="#ccc"
-                    onChangeText={text => setPassword(text)}
-                    style={styles.input}
-                    secureTextEntry
-                />
-                <TextInput placeholder="Vuelva a escribir la contraseña"
-                    value={rePassword}
-                    placeholderTextColor="#ccc"
-                    onChangeText={text => setRePassword(text)}
-                    style={styles.input}
-                    secureTextEntry
-                />
-            </View>
+                <View style={styles.inputContainer}>
+                    {!!message ? <TouchableOpacity
+                        style={styles.buttonError}
+                        onPress={() => setMessage("")}
+                    >
+                        <Text style={styles.buttonText}>{message}</Text>
+                    </TouchableOpacity> : null}
 
-            <View style={styles.buttonContainer} >
-                <TouchableOpacity
-                    onPress={handlerSingUp}
-                    style={[styles.button]}
-                >
-                    <Text style={styles.buttonText}>Crear</Text>
-                </TouchableOpacity>
+                    <TextInput placeholder="Nombre"
+                        value={displayName}
+                        onChangeText={text => setDisplayName(text)}
+                        placeholderTextColor="#ccc"
+                        style={styles.input}
+                    />
+                    <TextInput placeholder="Correo electrónico"
+                        value={email}
+                        placeholderTextColor="#ccc"
+                        onChangeText={text => setEmail(text)}
+                        style={styles.input}
+                    />
 
-                <TouchableOpacity
-                    onPress={handlerBack}
-                    style={[styles.button, styles.buttonOutline]}
-                >
-                    <Text style={styles.buttonRegisterText}>Volver</Text>
-                </TouchableOpacity>
-            </View>
+                    <TextInput placeholder="Contraseña"
+                        value={password}
+                        placeholderTextColor="#ccc"
+                        onChangeText={text => setPassword(text)}
+                        style={styles.input}
+                        secureTextEntry
+                    />
+                    <TextInput placeholder="Vuelva a escribir la contraseña"
+                        value={rePassword}
+                        placeholderTextColor="#ccc"
+                        onChangeText={text => setRePassword(text)}
+                        style={styles.input}
+                        secureTextEntry
+                    />
+                </View>
+
+                <View style={styles.buttonContainer} >
+                    <TouchableOpacity
+                        onPress={handlerSingUp}
+                        style={[styles.button]}
+                    >
+                        <Text style={styles.buttonText}>Crear</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={handlerBack}
+                        style={[styles.button, styles.buttonOutline]}
+                    >
+                        <Text style={styles.buttonRegisterText}>Volver</Text>
+                    </TouchableOpacity>
+                </View>
             </ImageBackground>
         </View>
-
     );
 }
 

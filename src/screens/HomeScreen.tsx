@@ -14,15 +14,6 @@ const audioPlayer = new Audio.Sound();
 const HomeScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
-  const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        navigation.replace("Login");
-      })
-      .catch((error) => alert(error.message));
-  };
-
   const [languageFlag, setLanguageFlag] = useState(1);
   const [objectFlag, setObjectFlag] = useState(1);
 
@@ -49,27 +40,7 @@ const HomeScreen = () => {
   const [image8, setImage8] = useState(require("../../assets/numbers/eight.png"));
   const [image9, setImage9] = useState(require("../../assets/numbers/nine.png"));
 
-  const [text1, setText1] = useState("UNO");
-  const [text2, setText2] = useState("DOS");
-  const [text3, setText3] = useState("TRES");
-  const [text4, setText4] = useState("CUATRO");
-  const [text5, setText5] = useState("CINCO");
-  const [text6, setText6] = useState("SEIS");
-  const [text7, setText7] = useState("SIETE");
-  const [text8, setText8] = useState("OCHO");
-  const [text9, setText9] = useState("NUEVE");
-
   const setNumbersSpanish = () => {
-    setText1("UNO");
-    setText2("DOS");
-    setText3("TRES");
-    setText4("CUATRO");
-    setText5("CINCO");
-    setText6("SEIS");
-    setText7("SIETE");
-    setText8("OCHO");
-    setText9("NUEVE");
-
     setImage1(require("../../assets/numbers/one.png"));
     setImage2(require("../../assets/numbers/two.png"));
     setImage3(require("../../assets/numbers/three.png"));
@@ -89,20 +60,9 @@ const HomeScreen = () => {
     setSound7(require("../../assets/sounds/spanish/numbers/siete.mp3"));
     setSound8(require("../../assets/sounds/spanish/numbers/ocho.mp3"));
     setSound9(require("../../assets/sounds/spanish/numbers/nueve.mp3"));
-
   };
 
   const setNumbersEnglish = () => {
-    setText1("ONE");
-    setText2("TWO");
-    setText3("THREE");
-    setText4("FOUR");
-    setText5("FIVE");
-    setText6("SIX");
-    setText7("SEVEN");
-    setText8("EIGHT");
-    setText9("NINE");
-
     setImage1(require("../../assets/numbers/one.png"));
     setImage2(require("../../assets/numbers/two.png"));
     setImage3(require("../../assets/numbers/three.png"));
@@ -125,16 +85,6 @@ const HomeScreen = () => {
   };
 
   const setNumbersPortuguese = () => {
-    setText1("UM");
-    setText2("DOIS");
-    setText3("TRÊS");
-    setText4("QUATRO");
-    setText5("CINCO");
-    setText6("SEIS");
-    setText7("SETE");
-    setText8("OITO");
-    setText9("NOVE");
-
     setImage1(require("../../assets/numbers/one.png"));
     setImage2(require("../../assets/numbers/two.png"));
     setImage3(require("../../assets/numbers/three.png"));
@@ -154,20 +104,9 @@ const HomeScreen = () => {
     setSound7(require("../../assets/sounds/portuguese/numbers/sete.mp3"));
     setSound8(require("../../assets/sounds/portuguese/numbers/oito.mp3"));
     setSound9(require("../../assets/sounds/portuguese/numbers/nove.mp3"));
-
   };
 
   const setColorsSpanish = () => {
-    setText1("NEGRO");
-    setText2("AZUL");
-    setText3("MARRON");
-    setText4("VERDE");
-    setText5("NARANJA");
-    setText6("ROSA");
-    setText7("AMARILLO");
-    setText8("ROJO");
-    setText9("BLANCO");
-
     setImage1(require("../../assets/colors/black.png"));
     setImage2(require("../../assets/colors/blue.png"));
     setImage3(require("../../assets/colors/brown.png"));
@@ -187,20 +126,9 @@ const HomeScreen = () => {
     setSound7(require("../../assets/sounds/spanish/colors/amarillo.mp3"));
     setSound8(require("../../assets/sounds/spanish/colors/rojo.mp3"));
     setSound9(require("../../assets/sounds/spanish/colors/blanco.mp3"));
-
   };
 
   const setColorsEnglish = () => {
-    setText1("BLACK");
-    setText2("BLUE");
-    setText3("BROWN");
-    setText4("GREEN");
-    setText5("ORANGE");
-    setText6("PINK");
-    setText7("PURPLE");
-    setText8("RED");
-    setText9("WHITE");
-
     setImage1(require("../../assets/colors/black.png"));
     setImage2(require("../../assets/colors/blue.png"));
     setImage3(require("../../assets/colors/brown.png"));
@@ -220,20 +148,9 @@ const HomeScreen = () => {
     setSound7(require("../../assets/sounds/english/colors/yellow.mp3"));
     setSound8(require("../../assets/sounds/english/colors/red.mp3"));
     setSound9(require("../../assets/sounds/english/colors/white.mp3"));
-
   };
 
   const setColorsPortuguese = () => {
-    setText1("PRETO");
-    setText2("AZUL");
-    setText3("MARROM");
-    setText4("VERDE");
-    setText5("LARANJA");
-    setText6("ROSA");
-    setText7("AMARELO");
-    setText8("VERMELHO");
-    setText9("BRANCO");
-
     setImage1(require("../../assets/colors/black.png"));
     setImage2(require("../../assets/colors/blue.png"));
     setImage3(require("../../assets/colors/brown.png"));
@@ -243,7 +160,7 @@ const HomeScreen = () => {
     setImage7(require("../../assets/colors/yellow.png"));
     setImage8(require("../../assets/colors/red.png"));
     setImage9(require("../../assets/colors/white.png"));
- 
+
     setSound1(require("../../assets/sounds/portuguese/colors/preto.mp3"));
     setSound2(require("../../assets/sounds/portuguese/colors/azul.mp3"));
     setSound3(require("../../assets/sounds/portuguese/colors/marrom.mp3"));
@@ -256,15 +173,6 @@ const HomeScreen = () => {
   };
 
   const setAnimalsSpanish = () => {
-    setText1("PÁJARO");
-    setText2("GATO");
-    setText3("VACA");
-    setText4("PERRO");
-    setText5("ELEFANTE");
-    setText6("PINGUINO");
-    setText7("LEÓN");
-    setText8("BÚHO");
-    setText9("TORTUGA");
     setImage1(require("../../assets/animals/bird.png"));
     setImage2(require("../../assets/animals/cat.png"));
     setImage3(require("../../assets/animals/cow.png"));
@@ -274,6 +182,7 @@ const HomeScreen = () => {
     setImage7(require("../../assets/animals/lion.png"));
     setImage8(require("../../assets/animals/owl.png"));
     setImage9(require("../../assets/animals/turtle.png"));
+
     setSound1(require("../../assets/sounds/spanish/animals/pajaro.mp3"));
     setSound2(require("../../assets/sounds/spanish/animals/gato.mp3"));
     setSound3(require("../../assets/sounds/spanish/animals/vaca.mp3"));
@@ -286,16 +195,6 @@ const HomeScreen = () => {
   };
 
   const setAnimalsEnglish = () => {
-    setText1("BIRD");
-    setText2("CAT");
-    setText3("COW");
-    setText4("DOG");
-    setText5("ELEPHANT");
-    setText6("PENGUIN");
-    setText7("LION");
-    setText8("OWL");
-    setText9("TURTLE");
-
     setImage1(require("../../assets/animals/bird.png"));
     setImage2(require("../../assets/animals/cat.png"));
     setImage3(require("../../assets/animals/cow.png"));
@@ -305,6 +204,7 @@ const HomeScreen = () => {
     setImage7(require("../../assets/animals/lion.png"));
     setImage8(require("../../assets/animals/owl.png"));
     setImage9(require("../../assets/animals/turtle.png"));
+
     setSound1(require("../../assets/sounds/english/animals/bird.mp3"));
     setSound2(require("../../assets/sounds/english/animals/cat.mp3"));
     setSound3(require("../../assets/sounds/english/animals/cow.mp3"));
@@ -317,15 +217,6 @@ const HomeScreen = () => {
   };
 
   const setAnimalsPortuguese = () => {
-    setText1("PÁSSARO");
-    setText2("GATO");
-    setText3("VACA");
-    setText4("CACHORRO");
-    setText5("ELEFANTE");
-    setText6("PINGUIM");
-    setText7("LEÂO");
-    setText8("CORUJA");
-    setText9("TARTARUGA");
     setImage1(require("../../assets/animals/bird.png"));
     setImage2(require("../../assets/animals/cat.png"));
     setImage3(require("../../assets/animals/cow.png"));
@@ -415,8 +306,6 @@ const HomeScreen = () => {
     }
   };
 
-
-
   async function playSound(sound: any) {
     try {
       await audioPlayer.unloadAsync()
@@ -429,27 +318,26 @@ const HomeScreen = () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-        headerRight: () => (
-            <TouchableOpacity onPress={handlerSingOut}>
-                <FontAwesome name="power-off" size={24} color="#696b67" />
-            </TouchableOpacity>
-        ),     
-        headerTitle: () => (  
-
-            <Text style={styles.textUser}>{auth?.currentUser?.displayName}</Text>                             
-        ),
-        headerBackVisible: false,
-        headerBackButtonMenuEnabled: false,
-        headerTitleAlign: 'left',
+      headerRight: () => (
+        <TouchableOpacity onPress={handlerSingOut}>
+          <FontAwesome name="power-off" size={24} color="#696b67" />
+        </TouchableOpacity>
+      ),
+      headerTitle: () => (
+        <Text style={styles.textUser}>{auth?.currentUser?.displayName}</Text>
+      ),
+      headerBackVisible: false,
+      headerBackButtonMenuEnabled: false,
+      headerTitleAlign: 'left',
     });
-}, []);
+  }, []);
 
-async function handlerSingOut() {
-  await auth
+  async function handlerSingOut() {
+    await auth
       .signOut()
       .then(() => { navigation.navigate('Index') })
       .catch((error: any) => alert(error.message))
-}
+  }
 
   return (
     <View style={styles.container}>
@@ -467,7 +355,6 @@ async function handlerSingOut() {
                 onPress={() => playSound(sound1)}
               >
                 <Image source={image1} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text1}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -475,7 +362,6 @@ async function handlerSingOut() {
                 onPress={() => playSound(sound2)}
               >
                 <Image source={image2} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text2}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -483,7 +369,6 @@ async function handlerSingOut() {
                 onPress={() => playSound(sound3)}
               >
                 <Image source={image3} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text3}</Text>
               </TouchableOpacity>
             </View>
 
@@ -493,7 +378,6 @@ async function handlerSingOut() {
                 onPress={() => playSound(sound4)}
               >
                 <Image source={image4} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text4}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -501,7 +385,6 @@ async function handlerSingOut() {
                 onPress={() => playSound(sound5)}
               >
                 <Image source={image5} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text5}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -509,7 +392,6 @@ async function handlerSingOut() {
                 onPress={() => playSound(sound6)}
               >
                 <Image source={image6} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text6}</Text>
               </TouchableOpacity>
             </View>
 
@@ -519,7 +401,6 @@ async function handlerSingOut() {
                 onPress={() => playSound(sound7)}
               >
                 <Image source={image7} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text7}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -527,7 +408,6 @@ async function handlerSingOut() {
                 onPress={() => playSound(sound8)}
               >
                 <Image source={image8} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text8}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -535,9 +415,8 @@ async function handlerSingOut() {
                 onPress={() => playSound(sound9)}
               >
                 <Image source={image9} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text9}</Text>
               </TouchableOpacity>
-            </View>            
+            </View>
           </View>
         </View>
         <ActionButton

@@ -20,27 +20,27 @@ const IndexScreen = () => {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../assets/background.png')} style={styles.image}>
-            <View style={styles.logo}>
-                <Image
-                    source={require('../assets/joystick.png')}  
-                    resizeMode="contain"   
-                    style={styles.logo}
-                />
-            </View>
+                <View style={styles.logo}>
+                    <Image
+                        source={require('../assets/joystick.png')}
+                        resizeMode="contain"
+                        style={styles.logo}
+                    />
+                </View>
 
-            <View style={styles.buttonContainer} >
-                <TouchableOpacity
-                    onPress={handlerSingIn}
-                    style={styles.button}>
-                    <Text style={styles.buttonText}>Iniciar Sesión</Text>
-                </TouchableOpacity>
+                <View style={styles.buttonContainer} >
+                    <TouchableOpacity
+                        onPress={handlerSingIn}
+                        style={styles.button}>
+                        <Text style={styles.buttonText}>Iniciar Sesión</Text>
+                    </TouchableOpacity>
 
-                <TouchableOpacity
-                    onPress={handlerSignUp}
-                    style={styles.buttonRegister}>
-                    <Text style={styles.buttonRegisterText}>¡Vamos a registrarnos!</Text>
-                </TouchableOpacity>
-            </View>
+                    <TouchableOpacity
+                        onPress={handlerSignUp}
+                        style={styles.buttonRegister}>
+                        <Text style={styles.buttonRegisterText}>¡Vamos a registrarnos!</Text>
+                    </TouchableOpacity>
+                </View>
             </ImageBackground>
         </View>
 

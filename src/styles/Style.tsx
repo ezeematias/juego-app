@@ -5,7 +5,6 @@ const secondaryColor = '#2aa94f';
 const tertiaryColor = '#ffffff';
 const fourthColor = '#f6a228';
 const fiveColor = '#2da6df';
-const sixColor = '#642681';
 const buttonBorderRadius = 0;
 
 export default StyleSheet.create({
@@ -42,12 +41,14 @@ export default StyleSheet.create({
         marginBottom: 10,
     },
     input: {
-        backgroundColor: sixColor,        
+        backgroundColor: '#696b67',        
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: buttonBorderRadius,
         color: tertiaryColor,
-        marginTop: '5%',        
+        marginTop: '5%',     
+        borderWidth: 1,
+        borderColor: tertiaryColor,
     },
     buttonContainer: {
         width: '100%',
